@@ -22,6 +22,33 @@ class Carro{
     
 }
 
+class Concessionaria{
+    private endereco:string
+    private listaDeCarros:any /**Qualquer tipo de dado */
+
+    constructor(endereco:string){
+        this.endereco = this.endereco
+    }
+    public fornecerEndereco():string{
+        return this.endereco
+    }
+
+    public mostrarListaDeCarro():any{
+        return this.listaDeCarros
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 let carroB = new Carro('Ferrari', 4)
 console.log(carroB)
 carroB.acelerar()
