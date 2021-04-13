@@ -25,3 +25,5 @@ class Carro{
 let carroB = new Carro('Ferrari', 4)
 console.log(carroB)
 carroB.acelerar()
+console.log(carroB)
+carroB.acelerar()
