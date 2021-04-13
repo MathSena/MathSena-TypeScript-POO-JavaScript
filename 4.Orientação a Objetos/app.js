@@ -16,13 +16,14 @@ var Carro = /** @class */ (function () {
     return Carro;
 }());
 var Concessionaria = /** @class */ (function () {
-    function Concessionaria(endereco) {
-        this.endereco = this.endereco;
+    function Concessionaria(endereco, listaDeCarros) {
+        this.endereco = endereco;
+        this.listaDeCarros = listaDeCarros;
     }
     Concessionaria.prototype.fornecerEndereco = function () {
         return this.endereco;
     };
-    Concessionaria.prototype.mostrarListaDeCarro = function () {
+    Concessionaria.prototype.mostrarListaDeCarros = function () {
         return this.listaDeCarros;
     };
     return Concessionaria;
@@ -46,12 +47,21 @@ var Pessoa = /** @class */ (function () {
     };
     return Pessoa;
 }());
-var carroB = new Carro('Ferrari', 4);
-console.log(carroB);
-carroB.acelerar();
-console.log(carroB);
-carroB.acelerar();
-var concessionariaA = new Concessionaria('Avenida Paulista');
-console.log(concessionariaA.fornecerEndereco());
-var pessoaA = new Pessoa('Matheus', 'Jeep Renegade');
-console.log(pessoaA.dizerCarroPreferido());
+/* --- cirar carros --- */
+var carroA = new Carro('Ferrari', 4);
+var carroB = new Carro('BMW', 3);
+var carroC = new Carro('Aston Martin', 4);
+/* --- montar a lista de carros da concessionaria ---*/
+var listaDeCarros = [carroA, carroB, carroC];
+var concessionaria = new Concessionaria('Avenida Paulista', listaDeCarros);
+/* --- exibir a lista de carros --- */
+// console.log(concessionaria.mostrarListaDeCarros())
+/* --- comprar o carro --- */
+var cliente = new Pessoa('Matheus', 'Ferrari');
+concessionaria.mostrarListaDeCarros().map(function (carro) {
+    if (cliente.dizerCarroPreferido() === carro.modelo) {
+        console.log("Cliente comprou o carro " + carro.modelo);
+        cliente.comprarCarro(carro);
+    }
+});
+console.log(cliente.dizerCarroQueTem());
