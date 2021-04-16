@@ -2,10 +2,13 @@
 exports.__esModule = true;
 var Carro_1 = require("./Carro");
 var Moto_1 = require("./Moto");
+var Concessionaria_1 = require("./Concessionaria");
 var carro = new Carro_1["default"]('Velost', 3);
 var moto = new Moto_1["default"]();
 moto.acelerar();
 moto.acelerar();
 carro.acelerar();
+var concessionaria = new Concessionaria_1["default"]('', []);
 console.log(carro);
 console.log(moto);
+console.log(concessionaria.forcenecerHorariosDeFuncionamento());
