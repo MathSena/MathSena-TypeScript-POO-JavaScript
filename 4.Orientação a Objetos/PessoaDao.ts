@@ -1,28 +1,26 @@
-import { DaoInterface } from './DaoInterface'
-import Pessoa from './Pessoa'
+import Carro from './Carro'
+export default class Pessoa {
+    private nome: string
+    private carroPreferido: string
+    private carro: Carro
 
-export class PessoaDao implements DaoInterface {
+    constructor(nome:string, carroPreferido:string){
+        this.nome = nome
+        this.carroPreferido = carroPreferido
+    }
+    public dizerNome():string {
+        return this.nome
+    }
 
-    nomeTabela: string = 'tb_pessoa'
+    public dizerCarroPreferido():string{
+        return this.carroPreferido
+    }
 
-    inserir(object: Pessoa): boolean {
-        console.log('Lógica de insert')
-        return true
+    public comprarCarro(carro: Carro): void {
+        this.carro = carro
     }
-    atualizar(object: Pessoa): boolean {
-        console.log('lógica update')
-        return true
-    }
-    remover(id: number): Pessoa {
-        console.log('lógica delete')
-        return new Pessoa('', '')
-    }
-    selecionar(id: number): Pessoa {
-        console.log('lógica select')
-        return new Pessoa('', '')
-    }
-    selecionarTodos(): [any] {
-        console.log('lógica getAll')
-        return [new Pessoa('', '')]
+
+    public dizerCarroQueTem():any{
+        return this.carro
     }
 }
